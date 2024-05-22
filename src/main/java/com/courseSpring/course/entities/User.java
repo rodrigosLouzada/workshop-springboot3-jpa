@@ -1,6 +1,8 @@
 package com.courseSpring.course.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -22,6 +24,8 @@ public class User implements Serializable {
 	private String email;
 	private String phone;
 	private String password;
+	
+	private List<Order> orders = new ArrayList<>();
 	
 	public User() {
 		
@@ -75,6 +79,10 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public List<Order> getOrders() {
+		return orders;
+	}
 
 	@Override
 	public int hashCode() {
@@ -92,7 +100,5 @@ public class User implements Serializable {
 		User other = (User) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
 
 }
